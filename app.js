@@ -1,6 +1,7 @@
 /**
  * Modern Resume Interactive Controller
  * Author: Venkatesh Mannem Resume Modernization
+ * Features: A11y Announcements, Theme Toggle, Density Toggle, Print/PDF, Copy Markdown
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,10 +11,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const densityLabel = document.getElementById('densityLabel');
   const copyMdBtn = document.getElementById('copyMdBtn');
   const toast = document.getElementById('toast');
+  const liveRegion = document.getElementById('liveRegion');
   const body = document.body;
+
+  // Screen Reader Announcer Helper
+  function announceToScreenReader(message) {
+    if (liveRegion) {
+      liveRegion.textContent = message;
+    }
+  }
 
   // 1. Print / Save as PDF
   printBtn.addEventListener('click', () => {
+    announceToScreenReader('Opening system print dialog');
     window.print();
   });
 
@@ -21,15 +31,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('resume-theme') || 'light';
   if (savedTheme === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
+    themeToggleBtn.setAttribute('aria-pressed', 'true');
+  } else {
+    themeToggleBtn.setAttribute('aria-pressed', 'false');
   }
 
   themeToggleBtn.addEventListener('click', () => {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
     if (newTheme === 'dark') {
       document.documentElement.setAttribute('data-theme', 'dark');
+      themeToggleBtn.setAttribute('aria-pressed', 'true');
+      announceToScreenReader('Dark theme activated');
+      showToast('Dark Mode enabled 🌙');
     } else {
       document.documentElement.removeAttribute('data-theme');
+      themeToggleBtn.setAttribute('aria-pressed', 'false');
+      announceToScreenReader('Light theme activated');
+      showToast('Light Mode enabled ☀️');
     }
     localStorage.setItem('resume-theme', newTheme);
   });
@@ -38,17 +58,22 @@ document.addEventListener('DOMContentLoaded', () => {
   let isCompact = true; // Default to compact 1-page fit
   body.classList.add('compact-mode');
   densityLabel.textContent = '1-Page Fit';
+  toggleDensityBtn.setAttribute('aria-pressed', 'true');
 
   toggleDensityBtn.addEventListener('click', () => {
     isCompact = !isCompact;
     if (isCompact) {
       body.classList.add('compact-mode');
       densityLabel.textContent = '1-Page Fit';
-      showToast('Compact 1-Page Mode enabled');
+      toggleDensityBtn.setAttribute('aria-pressed', 'true');
+      announceToScreenReader('Compact 1-Page Mode enabled');
+      showToast('Compact 1-Page Mode enabled 📄');
     } else {
       body.classList.remove('compact-mode');
       densityLabel.textContent = 'Expanded View';
-      showToast('Expanded View enabled');
+      toggleDensityBtn.setAttribute('aria-pressed', 'false');
+      announceToScreenReader('Expanded View enabled');
+      showToast('Expanded View enabled 📖');
     }
   });
 
@@ -129,8 +154,10 @@ Stack: Java 21, Spring Boot, Spring Security, JPA/Hibernate, MySQL, React 19 + V
   copyMdBtn.addEventListener('click', async () => {
     try {
       await navigator.clipboard.writeText(rawMarkdown);
+      announceToScreenReader('ATS Markdown copied to clipboard');
       showToast('ATS Markdown copied to clipboard! 📋');
     } catch (err) {
+      announceToScreenReader('Failed to copy to clipboard');
       showToast('Failed to copy to clipboard');
     }
   });
