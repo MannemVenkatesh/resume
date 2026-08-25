@@ -1,10 +1,15 @@
 /**
- * Modern Resume Interactive Controller
- * Author: Venkatesh Mannem Resume Modernization
- * Features: A11y Announcements, Theme Toggle, Density Toggle, Print/PDF, Copy Markdown
+ * Venkatesh Mannem — Interactive Resume & Tracer Journey Controller
+ * Features: Dual View Switcher (Doc/Tracer), Deep-Dive Architectural Modals, A11y Focus Trap, Themes
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // DOM Elements
+  const viewDocBtn = document.getElementById('viewDocBtn');
+  const viewTracerBtn = document.getElementById('viewTracerBtn');
+  const resumeSheet = document.getElementById('resumeSheet');
+  const tracerJourneyView = document.getElementById('tracerJourneyView');
+  
   const printBtn = document.getElementById('printBtn');
   const themeToggleBtn = document.getElementById('themeToggleBtn');
   const toggleDensityBtn = document.getElementById('toggleDensityBtn');
@@ -14,20 +19,314 @@ document.addEventListener('DOMContentLoaded', () => {
   const liveRegion = document.getElementById('liveRegion');
   const body = document.body;
 
-  // Screen Reader Announcer Helper
+  // Modal Elements
+  const modalBackdrop = document.getElementById('modalBackdrop');
+  const projectModal = document.getElementById('projectModal');
+  const modalBadge = document.getElementById('modalBadge');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalSubtitle = document.getElementById('modalSubtitle');
+  const modalBody = document.getElementById('modalBody');
+  const modalTechPills = document.getElementById('modalTechPills');
+  const modalCloseBtn = document.getElementById('modalCloseBtn');
+  const modalFooterCloseBtn = document.getElementById('modalFooterCloseBtn');
+
+  let lastActiveElement = null;
+
+  // =========================================================================
+  // 1. Projects Deep-Dive Data Store
+  // =========================================================================
+  const projectsData = {
+    vyapar360: {
+      badge: 'Production B2B SaaS Platform',
+      title: 'Vyapar360 — Multi-Tenant B2B Inventory & Retail SaaS Platform',
+      subtitle: 'Lead Backend Architect & Solo Developer • 2023 – Present',
+      flowNodes: [
+        'Tenant Request / Webhook',
+        'JwtAuthFilter / TenantResolver',
+        'TenantContext (ThreadLocal)',
+        'Orchestrator Service',
+        '@Transactional Processor',
+        'Hibernate 6 @TenantId',
+        'MySQL 8 (Row-Level Isolated)'
+      ],
+      problem: 'Indian retail and pharma stores struggled with multi-location stock tracking, batch expiry losses, and complex GST calculations across multiple billing modes.',
+      solution: 'Architected a multi-tenant B2B SaaS system with row-level data isolation, automated FEFO inventory deductions, and a decoupled Ports & Adapters billing engine.',
+      deepDivePoints: [
+        '<strong>Row-Level Multi-Tenancy & Session Binding:</strong> Implemented single-shared-schema multi-tenancy using Hibernate 6 <code>@TenantId</code>. Enforced strict Orchestrator/Processor transaction boundaries so <code>TenantContext</code> is bound before Hibernate Session creation, preventing accidental cross-tenant data bleed.',
+        '<strong>Hub-and-Spoke Subscription Billing Engine:</strong> Built decoupled Ports & Adapters subsystem supporting <strong>Razorpay UPI Autopay</strong> and <strong>Stripe</strong> webhooks. Integrated constant-time HMAC signature verification, inbox idempotency (<code>UNIQUE(provider, provider_event_id)</code>), out-of-order event rejection, and a background retry/dead-letter queue.',
+        '<strong>Append-Only Financial Ledger:</strong> Decomposed Indian processor fees (<code>gross = provider_fee + fee_tax (18% GST) + net_amount</code> in paise) for tax auditability and input credit reclaim.',
+        '<strong>POS & FEFO Inventory Engine:</strong> Built barcode and GS1 QR batch scanning, First-Expired-First-Out (FEFO) automated stock deduction, and multi-godown Delivery Challan transfers.',
+        '<strong>60+ Flyway Schema Migrations:</strong> Managed database evolution in production with <code>ddl-auto=validate</code> and Testcontainers MySQL integration testing.'
+      ],
+      techStack: ['Java 17/25', 'Spring Boot 3.2', 'Hibernate 6', 'MySQL 8', 'Flyway', 'Razorpay', 'Stripe', 'React 19', 'Docker', 'ShedLock']
+    },
+
+    paws: {
+      badge: 'Enterprise Platform',
+      title: 'PAWS — Projects And Workers System',
+      subtitle: 'Full-Stack Backend Architect • 2023 – Present',
+      flowNodes: [
+        'React 19 SPA (Nginx Proxy)',
+        'Spring Security (JWT + OTP)',
+        'TenantRoutingDataSource',
+        'Muster Roll & Wage Engine',
+        'Payment Gateway Callbacks',
+        'MySQL 8 & Audit Trails'
+      ],
+      problem: 'Contractors and project owners faced severe discrepancies in site labor allocations, manual muster rolls, daily wage calculations, and multi-site project budgeting.',
+      solution: 'Engineered a unified project and labor platform featuring automated attendance tracking, skill matching recommendation algorithms, and automated wage disbursement.',
+      deepDivePoints: [
+        '<strong>Workforce & Costing Engine:</strong> Architected domain services for contractor/labor lifecycle tracking, skill-based worker recommendations, project budgeting, and real-time expenditure estimation across active job sites.',
+        '<strong>Automated Muster Roll & Wage Computation:</strong> Built automated attendance pipelines with state machines (<code>PENDING</code>, <code>APPROVED</code>, <code>DISBURSED</code>), daily wage calculation rules, and payment gateway callback reconciliation.',
+        '<strong>Dynamic Multi-Tenancy Routing:</strong> Configured dynamic multi-tenant datasource routing (<code>TenantRoutingDataSource</code>), OTP verification services, and custom login rate limiters to protect against brute-force attacks.',
+        '<strong>Entity-Level Audit Logging:</strong> Built automated entity audit trails (<code>AuditLog</code>) tracking wage modifications, labor allocations, and administrative state transitions.'
+      ],
+      techStack: ['Java 21', 'Spring Boot', 'Spring Security', 'JPA/Hibernate', 'MySQL', 'React 19 + Vite', 'Docker', 'Nginx']
+    },
+
+    techmojo_fintech: {
+      badge: 'FinTech & High-Throughput Microservices',
+      title: 'Merchant Payment Processing Gateways & Card Limit Engine',
+      subtitle: 'Senior Backend Developer • Techmojo Solutions • 11/2019 – Present',
+      flowNodes: [
+        'Merchant Checkout API',
+        'API Gateway & Rate Limiter',
+        'Payment Orchestrator',
+        'Apple Pay / Bank Connectors',
+        'Redis Distributed Cache & Locks',
+        'Card Authorization Engine',
+        'MySQL / Reconciliation'
+      ],
+      problem: 'High peak checkout volumes created severe database contention, high API response latency, and risk of duplicate authorization submissions.',
+      solution: 'Overhauled query pipelines, introduced distributed Redis caching and locks, and built zero-trust device binding to secure transactions with 99.9% uptime.',
+      deepDivePoints: [
+        '<strong>40% API Latency Reduction:</strong> Analyzed slow SQL query bottlenecks and integrated distributed Redis caching across transaction history APIs, cutting response latency under peak load.',
+        '<strong>Resilient Payment Gateway Integrations:</strong> Built merchant payment processing gateways integrating <strong>Apple Pay, Direct Bank Connectors, and Proxy Aggregators</strong> with automated failure retries and webhooks.',
+        '<strong>Real-Time Card Authorization Engine:</strong> Engineered card limit microservices evaluating user limits, daily caps, and velocity rules before transaction capture.',
+        '<strong>Zero-Trust Device Binding:</strong> Implemented hardware-bound device fingerprints, JWT token validation, and OAuth2 scopes to eliminate account takeover and replay attacks.',
+        '<strong>Operational Backoffice:</strong> Built internal backoffice modules for transaction lifecycle tracking, automated reconciliation, and role-based access control.'
+      ],
+      techStack: ['Java 17/21', 'Spring Boot 3', 'Spring Cloud', 'Redis', 'MySQL', 'Kafka', 'OAuth2 / JWT', 'Prometheus', 'Grafana']
+    },
+
+    techmojo_gaming: {
+      badge: 'Gaming Platforms & SWAT Leadership',
+      title: 'High-Throughput Gaming Microservices & Production SWAT Triage',
+      subtitle: 'Senior Backend Engineer & Incident Lead • Techmojo Solutions • 2021 – Present',
+      flowNodes: [
+        'Multi-Brand Player Traffic',
+        '10+ Vendor Microservices',
+        'Apache Kafka Event Bus',
+        'VIP Player Sync Engine',
+        'Bonus Calculation Pipeline',
+        'Grafana / Prometheus Alerting'
+      ],
+      problem: 'Expanding multi-brand gaming catalogs required onboarding diverse third-party game providers with zero downtime while keeping player VIP state in sync.',
+      solution: 'Architected 10+ isolated vendor microservices, event-driven player sync pipelines with Kafka, and led SWAT on-call production incident triage.',
+      deepDivePoints: [
+        '<strong>10+ Vendor Integrations:</strong> Architected and deployed 10+ independent vendor integration microservices, standardizing data contracts across multi-brand gaming catalogs.',
+        '<strong>Event-Driven VIP Synchronization:</strong> Built Kafka-based event pipelines keeping player VIP tiers, loyalty points, and cross-brand state synchronized in real-time.',
+        '<strong>SWAT Incident Leadership & RCA:</strong> Served on the primary SWAT on-call rotation for production escalations, analyzing JVM thread/heap dumps and root causes (RCA) to remediate live issues with zero downtime.',
+        '<strong>Agile Pod Leadership:</strong> Led a team of 5 backend engineers through sprint planning, technical design reviews, code reviews, and on-time sprint deliverables.'
+      ],
+      techStack: ['Apache Kafka', 'Java', 'Spring Boot', 'Redis', 'Docker', 'Kubernetes', 'Testcontainers', 'Prometheus', 'Splunk']
+    },
+
+    scrum_automation: {
+      badge: 'Hackathon Award Winner',
+      title: 'Developer Sprint Automation Tooling (60% Time Savings)',
+      subtitle: 'Creator & Lead Engineer • Internal Coding Competition Winner • 2022',
+      flowNodes: [
+        'Developer Git Commits',
+        'Jira Ticket Status APIs',
+        'CLI Rollup Engine',
+        'Automated Standup Brief',
+        'Slack / Team Notification'
+      ],
+      problem: 'Engineering teams spent excessive time in daily standups manually compiling commit logs, Jira tickets, and blockers across multiple repositories.',
+      solution: 'Created a developer CLI automation tool that aggregates Git diffs, Jira statuses, and blockers into structured daily briefs in seconds.',
+      deepDivePoints: [
+        '<strong>60% Standup Duration Reduction:</strong> Reduced daily Scrum standup time from 20+ minutes to under 8 minutes across engineering pods.',
+        '<strong>Internal Coding Competition Winner:</strong> Recognized and awarded first prize across the company for engineering productivity tooling.',
+        '<strong>Cross-Team Adoption:</strong> Integrated into daily workflows across multiple development pods.'
+      ],
+      techStack: ['Java', 'Spring Boot CLI', 'Git APIs', 'Jira REST APIs', 'Developer Productivity']
+    }
+  };
+
+  // Screen Reader Announcer
   function announceToScreenReader(message) {
     if (liveRegion) {
       liveRegion.textContent = message;
     }
   }
 
-  // 1. Print / Save as PDF
+  // =========================================================================
+  // 2. View Mode Switcher (Document Resume ⇄ Tracer Journey Map)
+  // =========================================================================
+  function setViewMode(mode) {
+    if (mode === 'tracer') {
+      resumeSheet.classList.remove('active-view');
+      tracerJourneyView.classList.add('active-view');
+      viewDocBtn.classList.remove('active');
+      viewDocBtn.setAttribute('aria-pressed', 'false');
+      viewTracerBtn.classList.add('active');
+      viewTracerBtn.setAttribute('aria-pressed', 'true');
+      announceToScreenReader('Switched to Interactive Career Tracer Map view');
+      showToast('Career Tracer Journey Map enabled 🗺️');
+    } else {
+      tracerJourneyView.classList.remove('active-view');
+      resumeSheet.classList.add('active-view');
+      viewTracerBtn.classList.remove('active');
+      viewTracerBtn.setAttribute('aria-pressed', 'false');
+      viewDocBtn.classList.add('active');
+      viewDocBtn.setAttribute('aria-pressed', 'true');
+      announceToScreenReader('Switched to Classic Document Resume view');
+      showToast('Classic Document Resume enabled 📄');
+    }
+    localStorage.setItem('resume-view-mode', mode);
+  }
+
+  viewDocBtn.addEventListener('click', () => setViewMode('doc'));
+  viewTracerBtn.addEventListener('click', () => setViewMode('tracer'));
+
+  // Restore saved view mode if present
+  const savedView = localStorage.getItem('resume-view-mode') || 'doc';
+  if (savedView === 'tracer') {
+    setViewMode('tracer');
+  }
+
+  // =========================================================================
+  // 3. Interactive Deep-Dive Modal Controller
+  // =========================================================================
+  function openProjectModal(projectId) {
+    const data = projectsData[projectId];
+    if (!data) return;
+
+    lastActiveElement = document.activeElement;
+
+    modalBadge.textContent = data.badge;
+    modalTitle.textContent = data.title;
+    modalSubtitle.textContent = data.subtitle;
+
+    // Render Architecture Flow Diagram
+    let flowHtml = `
+      <div class="arch-diagram-card">
+        <h4 class="arch-card-title">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          System Architecture & Data Flow Pipeline
+        </h4>
+        <div class="arch-flow-diagram">
+          ${data.flowNodes.map((node, i) => `
+            <span class="arch-node ${i === 0 ? 'highlight' : ''}">${node}</span>
+            ${i < data.flowNodes.length - 1 ? '<span class="arch-arrow" aria-hidden="true">➔</span>' : ''}
+          `).join('')}
+        </div>
+      </div>
+    `;
+
+    // Render Problem / Solution
+    let probSolHtml = `
+      <div class="prob-sol-grid">
+        <div class="prob-card">
+          <h5 class="prob-title">🎯 Engineering Challenge</h5>
+          <p class="prob-desc">${data.problem}</p>
+        </div>
+        <div class="sol-card">
+          <h5 class="sol-title">⚡ Solution & Architecture</h5>
+          <p class="sol-desc">${data.solution}</p>
+        </div>
+      </div>
+    `;
+
+    // Render Deep Dive Highlights
+    let pointsHtml = `
+      <div class="arch-section-card">
+        <h4 class="arch-card-title">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          Key Technical Accomplishments & Implementation Details
+        </h4>
+        <ul class="deep-dive-points">
+          ${data.deepDivePoints.map(point => `<li>${point}</li>`).join('')}
+        </ul>
+      </div>
+    `;
+
+    modalBody.innerHTML = flowHtml + probSolHtml + pointsHtml;
+
+    // Render Tech Pills
+    modalTechPills.innerHTML = data.techStack.map(tech => `<span class="modal-pill">${tech}</span>`).join('');
+
+    modalBackdrop.classList.add('open');
+    modalBackdrop.setAttribute('aria-hidden', 'false');
+    projectModal.focus();
+    body.style.overflow = 'hidden';
+
+    announceToScreenReader(`Opened architecture deep dive for ${data.title}`);
+  }
+
+  function closeProjectModal() {
+    modalBackdrop.classList.remove('open');
+    modalBackdrop.setAttribute('aria-hidden', 'true');
+    body.style.overflow = '';
+
+    if (lastActiveElement) {
+      lastActiveElement.focus();
+    }
+    announceToScreenReader('Closed architecture deep dive modal');
+  }
+
+  modalCloseBtn.addEventListener('click', closeProjectModal);
+  modalFooterCloseBtn.addEventListener('click', closeProjectModal);
+
+  modalBackdrop.addEventListener('click', (e) => {
+    if (e.target === modalBackdrop) {
+      closeProjectModal();
+    }
+  });
+
+  // ESC key to close modal
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalBackdrop.classList.contains('open')) {
+      closeProjectModal();
+    }
+  });
+
+  // Attach click & enter triggers for all interactive items
+  function attachDeepDiveTriggers() {
+    const triggerElements = document.querySelectorAll('[data-project-id]');
+    triggerElements.forEach(el => {
+      const projectId = el.getAttribute('data-project-id');
+      if (!projectId) return;
+
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openProjectModal(projectId);
+      });
+
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openProjectModal(projectId);
+        }
+      });
+    });
+  }
+
+  attachDeepDiveTriggers();
+
+  // =========================================================================
+  // 4. Toolbar Controls (Print, Themes, Density, Copy Markdown)
+  // =========================================================================
+
+  // Print / Save as PDF (Forces Document View for clean print)
   printBtn.addEventListener('click', () => {
+    setViewMode('doc');
     announceToScreenReader('Opening system print dialog');
     window.print();
   });
 
-  // 2. Theme Toggle (Dark / Light)
+  // Theme Toggle (Dark / Light)
   const savedTheme = localStorage.getItem('resume-theme') || 'light';
   if (savedTheme === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
@@ -54,8 +353,8 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('resume-theme', newTheme);
   });
 
-  // 3. Density Toggle (Compact 1-Page vs Comfortable)
-  let isCompact = true; // Default to compact 1-page fit
+  // Density Toggle (Compact 1-Page vs Comfortable)
+  let isCompact = true;
   body.classList.add('compact-mode');
   densityLabel.textContent = '1-Page Fit';
   toggleDensityBtn.setAttribute('aria-pressed', 'true');
@@ -77,7 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 4. Raw ATS Markdown Content & Copy Feature
+  // Raw ATS Markdown Content & Copy Feature
   const rawMarkdown = `# VENKATESH MANNEM
 Senior Backend Engineer | Java & Distributed Systems Specialist
 Hyderabad, India | +91-9493721465 | m.venkatesh0109@gmail.com

@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Venkatesh Mannem — Senior Backend Engineer Resume</title>
-  <meta name="description" content="Resume of Venkatesh Mannem — Senior Backend Engineer with 6+ years experience specializing in Java (8-21), Spring Boot 3, MySQL 8 tuning, Kafka, Distributed Systems, FinTech, and B2B SaaS.">
+  <title>Venkatesh Mannem — Senior Backend Engineer | Interactive Resume & Tracer Journey</title>
+  <meta name="description" content="Interactive Resume & Career Tracer Map of Venkatesh Mannem — Senior Backend Engineer with 6+ years experience in Java (8-21), Spring Boot 3, MySQL 8, Distributed Systems, FinTech, and B2B SaaS.">
   <meta name="author" content="Venkatesh Mannem">
   <meta name="theme-color" content="#0f172a">
 
-  <!-- Google Fonts: Plus Jakarta Sans (Modern Neo-Grotesque) & JetBrains Mono -->
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -16,8 +16,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Accessibility: Skip Link for Screen Readers & Keyboard Users -->
-  <a href="#resumeSheet" class="skip-link">Skip to resume content</a>
+  <!-- Accessibility: Skip Link -->
+  <a href="#mainContent" class="skip-link">Skip to resume content</a>
 
   <!-- Floating Control Bar (Hidden during Print) -->
   <header class="control-bar no-print" id="controlBar" role="banner">
@@ -30,33 +30,49 @@
         </div>
       </div>
 
+      <!-- Center View Mode Toggle -->
+      <div class="view-mode-group" role="group" aria-label="Resume Display Mode">
+        <button id="viewDocBtn" class="mode-toggle-btn active" type="button" aria-pressed="true" title="Switch to Classic Document Resume">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <span>Document View</span>
+        </button>
+        <button id="viewTracerBtn" class="mode-toggle-btn" type="button" aria-pressed="false" title="Switch to Interactive Career Tracer Map">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
+          <span>Tracer Journey Map</span>
+        </button>
+      </div>
+
       <nav class="action-buttons" aria-label="Resume viewing and export options">
         <button id="toggleDensityBtn" class="btn btn-outline" type="button" aria-label="Toggle compact single page layout" aria-pressed="true">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
           <span id="densityLabel">1-Page Fit</span>
         </button>
 
         <button id="themeToggleBtn" class="btn btn-outline" type="button" aria-label="Toggle dark and light color theme">
-          <svg id="themeIcon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          <span id="themeLabel">Theme</span>
+          <svg id="themeIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <span>Theme</span>
         </button>
 
-        <button id="copyMdBtn" class="btn btn-outline" type="button" aria-label="Copy ATS-formatted plaintext markdown to clipboard">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        <button id="copyMdBtn" class="btn btn-outline" type="button" aria-label="Copy ATS plaintext markdown to clipboard">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           <span>Copy ATS Text</span>
         </button>
 
         <button id="printBtn" class="btn btn-primary" type="button" aria-label="Print resume or save as PDF">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
           <span>Save PDF / Print</span>
         </button>
       </nav>
     </div>
   </header>
 
-  <!-- Resume Main Canvas -->
+  <!-- Main Content Container -->
   <main class="page-wrapper" id="mainContent">
-    <article class="resume-sheet" id="resumeSheet" aria-label="Venkatesh Mannem Resume">
+
+    <!-- =========================================================================
+         VIEW 1: Standard Document Resume (Clean, ATS-Optimized, Printable)
+         ========================================================================= -->
+    <article class="resume-sheet active-view" id="resumeSheet" aria-label="Venkatesh Mannem Resume">
       
       <!-- Top Decorative Accent Bar -->
       <div class="sheet-accent-bar" aria-hidden="true"></div>
@@ -65,29 +81,28 @@
       <header class="resume-header">
         <div class="header-main">
           <h1 class="candidate-name" id="name">VENKATESH MANNEM</h1>
-          <p class="candidate-title" id="headline">Senior Backend Engineer <span class="title-separator" aria-hidden="true">|</span> Java & Distributed Systems</p>
+          <p class="candidate-title" id="headline">Senior Backend Engineer <span class="title-separator" aria-hidden="true">|</span> Java & Distributed Systems Specialist</p>
         </div>
 
-        <!-- Contact details using semantic address markup -->
         <address class="contact-grid" aria-label="Contact Information">
           <div class="contact-item">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             <span>Hyderabad, India</span>
           </div>
           <div class="contact-item">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <a href="tel:+919493721465" aria-label="Phone number: +91 9493721465">+91-9493721465</a>
           </div>
           <div class="contact-item">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             <a href="mailto:m.venkatesh0109@gmail.com" aria-label="Email address: m.venkatesh0109@gmail.com">m.venkatesh0109@gmail.com</a>
           </div>
           <div class="contact-item">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
             <a href="https://linkedin.com/in/venkatesh-mannem" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile of Venkatesh Mannem">linkedin.com/in/venkatesh-mannem</a>
           </div>
           <div class="contact-item">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
             <a href="https://github.com/MannemVenkatesh" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile of Venkatesh Mannem">github.com/MannemVenkatesh</a>
           </div>
         </address>
@@ -178,8 +193,11 @@
           </div>
 
           <!-- FinTech Projects Group -->
-          <div class="project-group">
-            <h4 class="group-title">FinTech & Payment Gateway Systems</h4>
+          <div class="project-group interactive-group" data-project-id="techmojo_fintech" role="button" tabindex="0" aria-label="Click to explore FinTech & Payment Gateway architecture deep dive">
+            <div class="group-header-clickable">
+              <h4 class="group-title">FinTech & Payment Gateway Systems</h4>
+              <span class="explore-hint no-print"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Explore Deep Dive</span>
+            </div>
             <ul class="bullet-list">
               <li>
                 <strong>Payment Gateway Integration:</strong> Built backend payment services integrating Apple Pay, direct bank connectors, and merchant aggregators, handling high-volume transaction routing and callback processing with 99.9% uptime.
@@ -200,8 +218,11 @@
           </div>
 
           <!-- Gaming Platform Group -->
-          <div class="project-group">
-            <h4 class="group-title">High-Throughput Gaming Platforms</h4>
+          <div class="project-group interactive-group" data-project-id="techmojo_gaming" role="button" tabindex="0" aria-label="Click to explore Gaming Platform architecture deep dive">
+            <div class="group-header-clickable">
+              <h4 class="group-title">High-Throughput Gaming Platforms</h4>
+              <span class="explore-hint no-print"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Explore Deep Dive</span>
+            </div>
             <ul class="bullet-list">
               <li>
                 <strong>Vendor Integration Services:</strong> Designed and deployed <strong>10+ isolated microservices</strong> to onboard third-party game providers, standardizing data contracts across multi-brand gaming catalogs.
@@ -244,12 +265,13 @@
         </h2>
 
         <!-- Project 1: Vyapar360 -->
-        <div class="personal-project-item">
+        <div class="personal-project-item interactive-item" data-project-id="vyapar360" role="button" tabindex="0" aria-label="Click to explore Vyapar360 architecture deep dive">
           <div class="project-header">
             <div class="proj-title-stack">
               <h3 class="project-name">Vyapar360 — Multi-Tenant B2B Inventory & Retail SaaS Platform <span class="badge-solo">Production System</span></h3>
               <span class="tech-stack-tag">Java 17/25 • Spring Boot 3.2 • Hibernate 6 • MySQL 8 • Flyway • Razorpay / Stripe • React 19 • Docker</span>
             </div>
+            <span class="explore-pill no-print"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Architecture Deep-Dive</span>
           </div>
           <ul class="bullet-list">
             <li>
@@ -265,12 +287,13 @@
         </div>
 
         <!-- Project 2: PAWS -->
-        <div class="personal-project-item">
+        <div class="personal-project-item interactive-item" data-project-id="paws" role="button" tabindex="0" aria-label="Click to explore PAWS architecture deep dive">
           <div class="project-header">
             <div class="proj-title-stack">
               <h3 class="project-name">PAWS — Projects And Workers System <span class="badge-solo">Enterprise Platform</span></h3>
               <span class="tech-stack-tag">Java 21 • Spring Boot • Spring Security • JPA/Hibernate • MySQL • React 19 + Vite • Docker • Nginx</span>
             </div>
+            <span class="explore-pill no-print"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Architecture Deep-Dive</span>
           </div>
           <ul class="bullet-list">
             <li>
@@ -295,7 +318,7 @@
             <span>Key Achievements & Honors</span>
           </h2>
           <ul class="bullet-list compact-list">
-            <li>
+            <li class="interactive-li" data-project-id="scrum_automation" role="button" tabindex="0" title="Click to view Scrum Tool architecture details">
               <strong>Winner, Internal Coding Competition:</strong> Built a sprint automation tool that reduced daily Scrum duration by 60%, adopted across engineering teams.
             </li>
             <li>
@@ -328,7 +351,220 @@
       </div>
 
     </article>
+
+    <!-- =========================================================================
+         VIEW 2: Interactive Career Tracer Map & Journey Route
+         ========================================================================= -->
+    <section class="tracer-journey-view" id="tracerJourneyView" aria-label="Interactive Career Tracer Journey Map">
+      
+      <div class="journey-header">
+        <div class="journey-title-wrap">
+          <span class="journey-badge">🗺️ Interactive Architecture Map</span>
+          <h2 class="journey-title">Engineering Career & Systems Tracer Route</h2>
+          <p class="journey-subtitle">Follow the chronological trace path below. Click any system milestone along the route to explore detailed architectural flows, data pipelines, and design decisions.</p>
+        </div>
+        <div class="journey-legend" aria-hidden="true">
+          <span class="legend-item"><span class="legend-dot dot-fintech"></span> FinTech & Payments</span>
+          <span class="legend-item"><span class="legend-dot dot-saas"></span> Multi-Tenant SaaS</span>
+          <span class="legend-item"><span class="legend-dot dot-gaming"></span> High-Throughput Gaming</span>
+          <span class="legend-item"><span class="legend-dot dot-edu"></span> Foundations</span>
+        </div>
+      </div>
+
+      <!-- Glowing Tracer Timeline Path -->
+      <div class="tracer-route-container">
+        <div class="tracer-path-line" aria-hidden="true">
+          <div class="tracer-pulse-glow"></div>
+        </div>
+
+        <!-- Node 1: Vyapar360 SaaS -->
+        <article class="tracer-node node-saas" data-project-id="vyapar360" tabindex="0" role="button" aria-label="Milestone: Vyapar360 Multi-Tenant SaaS. Click for deep dive.">
+          <div class="node-marker" aria-hidden="true">
+            <div class="marker-core"></div>
+            <div class="marker-ring"></div>
+          </div>
+          <div class="node-card">
+            <div class="node-card-header">
+              <div class="node-meta">
+                <span class="node-tag tag-saas">Production B2B SaaS</span>
+                <span class="node-time">2023 – Present</span>
+              </div>
+              <span class="node-action-btn">Deep Dive ➔</span>
+            </div>
+            <h3 class="node-title">Vyapar360 — Multi-Tenant B2B Inventory & Retail SaaS Platform</h3>
+            <p class="node-desc">Multi-tenant retail/pharma SaaS platform with row-level Hibernate 6 data isolation, Ports & Adapters subscription billing (Razorpay/Stripe), FEFO POS scanning, and GST tax ledger.</p>
+            <div class="node-tech-row">
+              <span class="node-chip">Spring Boot 3.2</span>
+              <span class="node-chip">Hibernate 6 @TenantId</span>
+              <span class="node-chip">MySQL 8</span>
+              <span class="node-chip">Flyway (60+ Migrations)</span>
+              <span class="node-chip">Razorpay / Stripe</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Node 2: PAWS System -->
+        <article class="tracer-node node-saas" data-project-id="paws" tabindex="0" role="button" aria-label="Milestone: PAWS Projects and Workers System. Click for deep dive.">
+          <div class="node-marker" aria-hidden="true">
+            <div class="marker-core"></div>
+            <div class="marker-ring"></div>
+          </div>
+          <div class="node-card">
+            <div class="node-card-header">
+              <div class="node-meta">
+                <span class="node-tag tag-saas">Enterprise Workforce System</span>
+                <span class="node-time">2023 – Present</span>
+              </div>
+              <span class="node-action-btn">Deep Dive ➔</span>
+            </div>
+            <h3 class="node-title">PAWS — Projects And Workers System</h3>
+            <p class="node-desc">Workforce & contractor management engine featuring skill-based recommendation matching, automated Muster Roll attendance tracking, wage payout gateways, and dynamic datasource routing.</p>
+            <div class="node-tech-row">
+              <span class="node-chip">Java 21</span>
+              <span class="node-chip">Spring Boot</span>
+              <span class="node-chip">TenantRoutingDataSource</span>
+              <span class="node-chip">MySQL</span>
+              <span class="node-chip">React 19 + Vite</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Node 3: Techmojo FinTech Gateway -->
+        <article class="tracer-node node-fintech" data-project-id="techmojo_fintech" tabindex="0" role="button" aria-label="Milestone: Techmojo FinTech Gateway. Click for deep dive.">
+          <div class="node-marker" aria-hidden="true">
+            <div class="marker-core"></div>
+            <div class="marker-ring"></div>
+          </div>
+          <div class="node-card">
+            <div class="node-card-header">
+              <div class="node-meta">
+                <span class="node-tag tag-fintech">FinTech & Payments</span>
+                <span class="node-time">11/2019 – Present</span>
+              </div>
+              <span class="node-action-btn">Deep Dive ➔</span>
+            </div>
+            <h3 class="node-title">FinTech Payment Processing Gateways & Card Limit Engine</h3>
+            <p class="node-desc">Architected end-to-end merchant payment processing gateways integrating Apple Pay and direct bank connectors; integrated Redis caching to cut latency by 40% with 99.9% uptime.</p>
+            <div class="node-tech-row">
+              <span class="node-chip">Java 17/21</span>
+              <span class="node-chip">Spring Boot</span>
+              <span class="node-chip">Redis Caching (40% Drop)</span>
+              <span class="node-chip">Apple Pay & PISP</span>
+              <span class="node-chip">MySQL Query Tuning</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Node 4: Techmojo Gaming & SWAT -->
+        <article class="tracer-node node-gaming" data-project-id="techmojo_gaming" tabindex="0" role="button" aria-label="Milestone: Techmojo Gaming Systems and SWAT. Click for deep dive.">
+          <div class="node-marker" aria-hidden="true">
+            <div class="marker-core"></div>
+            <div class="marker-ring"></div>
+          </div>
+          <div class="node-card">
+            <div class="node-card-header">
+              <div class="node-meta">
+                <span class="node-tag tag-gaming">Gaming & SWAT Leadership</span>
+                <span class="node-time">2021 – Present</span>
+              </div>
+              <span class="node-action-btn">Deep Dive ➔</span>
+            </div>
+            <h3 class="node-title">High-Throughput Gaming Microservices & Production SWAT Triage</h3>
+            <p class="node-desc">Delivered 10+ third-party vendor microservices, built Kafka event pipelines for VIP player state synchronization, and served as primary SWAT on-call incident lead for zero-downtime remediation.</p>
+            <div class="node-tech-row">
+              <span class="node-chip">Apache Kafka</span>
+              <span class="node-chip">10+ Vendor Microservices</span>
+              <span class="node-chip">Pod Lead (5 Devs)</span>
+              <span class="node-chip">JVM Dump & RCA</span>
+              <span class="node-chip">99.9% Uptime</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Node 5: Hackathon Scrum Automation Tool -->
+        <article class="tracer-node node-tool" data-project-id="scrum_automation" tabindex="0" role="button" aria-label="Milestone: Developer Automation Tool Hackathon Win. Click for deep dive.">
+          <div class="node-marker" aria-hidden="true">
+            <div class="marker-core"></div>
+            <div class="marker-ring"></div>
+          </div>
+          <div class="node-card">
+            <div class="node-card-header">
+              <div class="node-meta">
+                <span class="node-tag tag-tool">Award Winner</span>
+                <span class="node-time">2022</span>
+              </div>
+              <span class="node-action-btn">Deep Dive ➔</span>
+            </div>
+            <h3 class="node-title">Developer Sprint Automation Tooling (60% Time Savings)</h3>
+            <p class="node-desc">Engineered custom CLI status rollup tooling automating commit diffs and standup reporting, cutting daily team sync time by 60% and winning the Internal Coding Competition.</p>
+            <div class="node-tech-row">
+              <span class="node-chip">Developer Productivity</span>
+              <span class="node-chip">Automation CLI</span>
+              <span class="node-chip">60% Standup Reduction</span>
+              <span class="node-chip">Hackathon Winner</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Node 6: Education & Foundations -->
+        <article class="tracer-node node-edu" tabindex="0" aria-label="Milestone: Academic Foundations at Koneru Lakshmaiah University">
+          <div class="node-marker" aria-hidden="true">
+            <div class="marker-core"></div>
+            <div class="marker-ring"></div>
+          </div>
+          <div class="node-card">
+            <div class="node-card-header">
+              <div class="node-meta">
+                <span class="node-tag tag-edu">Academic Foundation</span>
+                <span class="node-time">2012 – 2020</span>
+              </div>
+            </div>
+            <h3 class="node-title">Koneru Lakshmaiah University — M.Tech & B.Tech</h3>
+            <p class="node-desc">Completed Master of Technology (M.Tech) in Computer Science (ML & Computing, 2018–2020) and Bachelor of Technology (B.Tech) in Computer Science Engineering (2012–2016).</p>
+            <div class="node-tech-row">
+              <span class="node-chip">M.Tech (ML & Computing)</span>
+              <span class="node-chip">B.Tech (Computer Science)</span>
+              <span class="node-chip">Distributed Systems</span>
+              <span class="node-chip">Algorithms & Data Structures</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
   </main>
+
+  <!-- =========================================================================
+       INTERACTIVE DEEP-DIVE MODAL COMPONENT (Accessible Dialog / Drawer)
+       ========================================================================= -->
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true" role="presentation">
+    <div class="modal-dialog" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+      
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-badge" id="modalBadge">Production System</span>
+          <h2 class="modal-title" id="modalTitle">Project Title</h2>
+          <p class="modal-subtitle" id="modalSubtitle">Subheading & Role</p>
+        </div>
+        <button class="modal-close-btn" id="modalCloseBtn" type="button" aria-label="Close project architecture deep-dive modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="modal-body" id="modalBody">
+        <!-- Dynamic Content Injected via app.js -->
+      </div>
+
+      <div class="modal-footer">
+        <div class="modal-tech-pills" id="modalTechPills">
+          <!-- Tech pills dynamically rendered -->
+        </div>
+        <button class="btn btn-outline modal-action-close" id="modalFooterCloseBtn" type="button">Close Deep Dive</button>
+      </div>
+
+    </div>
+  </div>
 
   <!-- Live region for Screen Reader notifications -->
   <div id="liveRegion" class="sr-only" aria-live="polite" aria-atomic="true"></div>
