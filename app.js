@@ -62,9 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     paws: {
-      badge: 'Recent Personal Project • Completed',
+      badge: 'Active Personal Project • In Development',
       title: 'PAWS — Projects And Workers System',
-      subtitle: 'Full-Stack Backend Architect • 2026 (Completed)',
+      subtitle: 'Full-Stack Backend Architect • 08/2026 – Present (Active Development)',
       flowNodes: [
         'React 19 SPA (Nginx Proxy)',
         'Spring Security (JWT + OTP)',
@@ -435,7 +435,7 @@ Stack: Java 17/25, Spring Boot 3.2, Hibernate 6, MySQL 8, Flyway, Razorpay / Str
 - Subscription Billing & Webhooks: Implemented a Ports & Adapters billing subsystem for Razorpay UPI Autopay and Stripe; built HMAC signature validation, idempotent event ingestion (UNIQUE provider event inbox), and a 6-hour watchdog service to detect subscription drift.
 - Inventory & POS Operations: Developed barcode/GS1 QR batch scanning, First-Expired-First-Out (FEFO) automated stock depletion, multi-godown Delivery Challans, and GST-compliant invoice calculation (CGST/SGST/IGST).
 
-PAWS — Projects And Workers System (Personal Project • Completed 2026)
+PAWS — Projects And Workers System (Personal Project • 08/2026 – Present)
 Stack: Java 21, Spring Boot, Spring Security, JPA/Hibernate, MySQL, React 19 + Vite, Docker, Nginx
 - Workforce & Project Management: Designed full-stack platform to manage contractor profiles, skill-based worker allocation, site assignments, and real-time project expenditure tracking.
 - Attendance & Wage Payouts: Built daily Muster Roll attendance tracking, wage computation rules, and payment disbursement flows with automated entity audit logs (AuditLog) for tracking wage adjustments.
