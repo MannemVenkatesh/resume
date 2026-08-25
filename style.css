@@ -1,6 +1,6 @@
 /* ==========================================================================
    Venkatesh Mannem — Senior Backend Engineer Modern Design System
-   Interactive Resume + Career Tracer Map + Architectural Deep-Dive Modals
+   Interactive Resume + Career Tracer Map + Pixel-Perfect PDF Print Engine
    ========================================================================== */
 
 :root {
@@ -375,7 +375,7 @@ address {
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
-  padding: 26px 32px;
+  padding: 24px 30px;
   position: relative;
   overflow: hidden;
   transition: background-color 0.25s ease, border-color 0.25s ease;
@@ -392,8 +392,8 @@ address {
 
 .resume-header {
   border-bottom: 2px solid var(--border-color);
-  padding-bottom: 10px;
-  margin-bottom: 10px;
+  padding-bottom: 9px;
+  margin-bottom: 9px;
 }
 
 .candidate-name {
@@ -422,7 +422,7 @@ address {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 7px 15px;
+  gap: 6px 14px;
   font-size: 11.2px;
   color: var(--text-muted);
 }
@@ -456,7 +456,7 @@ address {
   border: 1px solid var(--primary-border);
   border-radius: var(--radius-md);
   padding: 7px 10px;
-  margin-bottom: 10px;
+  margin-bottom: 9px;
 }
 
 .metric-card {
@@ -485,7 +485,7 @@ address {
 
 /* Sections */
 .resume-section {
-  margin-bottom: 10px;
+  margin-bottom: 9px;
 }
 
 .section-title {
@@ -498,8 +498,8 @@ address {
   letter-spacing: 0.6px;
   color: var(--primary);
   border-bottom: 1.5px solid var(--border-color);
-  padding-bottom: 2.5px;
-  margin-bottom: 5px;
+  padding-bottom: 2px;
+  margin-bottom: 4.5px;
 }
 
 .title-icon {
@@ -507,9 +507,9 @@ address {
 }
 
 .summary-text {
-  font-size: 11.4px;
+  font-size: 11.2px;
   color: var(--text-secondary);
-  line-height: 1.44;
+  line-height: 1.42;
   text-align: justify;
 }
 
@@ -522,15 +522,15 @@ address {
 .skills-grid {
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  font-size: 11.2px;
+  gap: 2.5px;
+  font-size: 11px;
 }
 
 .skill-category {
   display: flex;
   flex-wrap: wrap;
   gap: 2px 6px;
-  line-height: 1.34;
+  line-height: 1.32;
 }
 
 .cat-name {
@@ -556,7 +556,7 @@ address {
   align-items: baseline;
   flex-wrap: wrap;
   gap: 4px;
-  margin-bottom: 4px;
+  margin-bottom: 3.5px;
 }
 
 .role-title {
@@ -584,15 +584,15 @@ address {
 }
 
 .project-group {
-  margin-top: 4.5px;
-  margin-bottom: 4.5px;
+  margin-top: 4px;
+  margin-bottom: 4px;
   border-radius: var(--radius-sm);
   transition: all 0.2s ease;
 }
 
 .interactive-group {
   cursor: pointer;
-  padding: 4px 6px;
+  padding: 3px 6px;
   margin-left: -6px;
   margin-right: -6px;
 }
@@ -607,7 +607,7 @@ address {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  margin-bottom: 3px;
+  margin-bottom: 2.5px;
 }
 
 .group-title {
@@ -624,7 +624,7 @@ address {
 }
 
 .explore-hint {
-  font-size: 10px;
+  font-size: 9.8px;
   font-weight: 600;
   color: var(--accent);
   display: inline-flex;
@@ -646,10 +646,10 @@ address {
 .bullet-list li {
   position: relative;
   padding-left: 12px;
-  margin-bottom: 3px;
-  font-size: 11.2px;
+  margin-bottom: 2.5px;
+  font-size: 11px;
   color: var(--text-secondary);
-  line-height: 1.36;
+  line-height: 1.35;
 }
 
 .bullet-list li::before {
@@ -669,7 +669,7 @@ address {
 
 .bullet-list code {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 9.8px;
   background: var(--tag-bg);
   padding: 1px 3px;
   border-radius: 3px;
@@ -679,16 +679,16 @@ address {
 
 /* Interactive Projects */
 .personal-project-item {
-  margin-bottom: 6px;
-  padding: 5px 8px;
+  margin-bottom: 5px;
+  padding: 4px 6px;
   border-radius: var(--radius-md);
   transition: all 0.2s ease;
 }
 
 .interactive-item {
   cursor: pointer;
-  margin-left: -8px;
-  margin-right: -8px;
+  margin-left: -6px;
+  margin-right: -6px;
 }
 
 .interactive-item:hover {
@@ -701,7 +701,7 @@ address {
   justify-content: space-between;
   align-items: flex-start;
   gap: 8px;
-  margin-bottom: 3px;
+  margin-bottom: 2.5px;
 }
 
 .proj-title-stack {
@@ -712,7 +712,7 @@ address {
 }
 
 .project-name {
-  font-size: 11.6px;
+  font-size: 11.5px;
   font-weight: 700;
   color: var(--text-primary);
 }
@@ -720,23 +720,23 @@ address {
 .badge-solo {
   background: var(--accent-gradient);
   color: #ffffff;
-  font-size: 8.8px;
+  font-size: 8.5px;
   font-weight: 700;
   text-transform: uppercase;
-  padding: 1px 5px;
+  padding: 1px 4px;
   border-radius: 3px;
   letter-spacing: 0.3px;
 }
 
 .tech-stack-tag {
-  font-size: 10px;
+  font-size: 9.8px;
   color: var(--text-muted);
   font-family: var(--font-mono);
   font-weight: 500;
 }
 
 .explore-pill {
-  font-size: 9.5px;
+  font-size: 9.2px;
   font-weight: 600;
   color: var(--accent);
   background: var(--primary-light);
@@ -778,12 +778,12 @@ address {
 }
 
 .compact-list li {
-  margin-bottom: 2.5px;
+  margin-bottom: 2px;
 }
 
 .edu-item {
-  margin-bottom: 3px;
-  font-size: 10.8px;
+  margin-bottom: 2.5px;
+  font-size: 10.6px;
 }
 
 .edu-header {
@@ -804,7 +804,7 @@ address {
 
 .edu-school {
   color: var(--text-secondary);
-  font-size: 10.2px;
+  font-size: 10px;
 }
 
 /* ==========================================================================
@@ -819,8 +819,8 @@ address {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  padding: 20px 24px;
-  margin-bottom: 24px;
+  padding: 18px 22px;
+  margin-bottom: 20px;
   box-shadow: var(--shadow-md);
   position: relative;
   overflow: hidden;
@@ -863,8 +863,8 @@ address {
   display: flex;
   flex-wrap: wrap;
   gap: 12px 18px;
-  margin-top: 14px;
-  padding-top: 12px;
+  margin-top: 12px;
+  padding-top: 10px;
   border-top: 1px solid var(--border-color);
   font-size: 11px;
   font-weight: 600;
@@ -888,7 +888,7 @@ address {
 .dot-gaming { background: var(--node-gaming); box-shadow: 0 0 6px var(--node-gaming); }
 .dot-edu { background: var(--node-edu); }
 
-/* Tracer Route & Glowing Line */
+/* Tracer Route & Line */
 .tracer-route-container {
   position: relative;
   padding: 10px 0 20px 30px;
@@ -925,7 +925,7 @@ address {
 /* Tracer Nodes */
 .tracer-node {
   position: relative;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
   cursor: pointer;
 }
 
@@ -986,7 +986,7 @@ address {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  padding: 16px 20px;
+  padding: 14px 18px;
   box-shadow: var(--shadow-md);
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -1007,7 +1007,7 @@ address {
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .node-meta {
@@ -1058,17 +1058,17 @@ address {
 }
 
 .node-title {
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 800;
   color: var(--text-primary);
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 }
 
 .node-desc {
-  font-size: 12px;
+  font-size: 11.6px;
   color: var(--text-secondary);
-  line-height: 1.45;
-  margin-bottom: 10px;
+  line-height: 1.42;
+  margin-bottom: 8px;
 }
 
 .node-tech-row {
@@ -1078,17 +1078,17 @@ address {
 }
 
 .node-chip {
-  font-size: 10.5px;
+  font-size: 10px;
   font-family: var(--font-mono);
   background: var(--tag-bg);
   border: 1px solid var(--border-color);
   color: var(--text-secondary);
-  padding: 2px 6px;
+  padding: 2px 5px;
   border-radius: var(--radius-sm);
 }
 
 /* ==========================================================================
-   DEEP-DIVE MODAL (Architecture Dialog / Drawer)
+   DEEP-DIVE MODAL
    ========================================================================== */
 
 .modal-backdrop {
@@ -1138,7 +1138,7 @@ address {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 20px 24px 16px;
+  padding: 18px 22px 14px;
   border-bottom: 1px solid var(--border-color);
   position: relative;
 }
@@ -1156,12 +1156,12 @@ address {
 .modal-title-wrap {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2px;
 }
 
 .modal-badge {
   display: inline-block;
-  font-size: 10.5px;
+  font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -1169,14 +1169,14 @@ address {
 }
 
 .modal-title {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 800;
   color: var(--text-primary);
   line-height: 1.25;
 }
 
 .modal-subtitle {
-  font-size: 12px;
+  font-size: 11.5px;
   color: var(--text-muted);
 }
 
@@ -1184,8 +1184,8 @@ address {
   background: var(--bg-card-subtle);
   border: 1px solid var(--border-color);
   color: var(--text-muted);
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1201,28 +1201,27 @@ address {
 }
 
 .modal-body {
-  padding: 20px 24px;
+  padding: 18px 22px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
-/* Architecture Flow Box */
 .arch-diagram-card {
   background: var(--bg-card-subtle);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  padding: 14px 16px;
+  padding: 12px 15px;
 }
 
 .arch-card-title {
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   color: var(--accent);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -1232,14 +1231,14 @@ address {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px 10px;
-  font-size: 11px;
+  gap: 6px 8px;
+  font-size: 10.5px;
 }
 
 .arch-node {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  padding: 6px 10px;
+  padding: 5px 9px;
   border-radius: var(--radius-sm);
   font-weight: 600;
   color: var(--text-primary);
@@ -1258,17 +1257,16 @@ address {
   font-weight: bold;
 }
 
-/* Problem / Solution Grid */
 .prob-sol-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 10px;
 }
 
 .prob-card,
 .sol-card {
   border-radius: var(--radius-md);
-  padding: 12px 14px;
+  padding: 10px 12px;
   border: 1px solid var(--border-color);
   background: var(--bg-card);
 }
@@ -1278,11 +1276,11 @@ address {
 
 .prob-title,
 .sol-title {
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.4px;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 .prob-title { color: #dc2626; }
@@ -1290,12 +1288,11 @@ address {
 
 .prob-desc,
 .sol-desc {
-  font-size: 11.5px;
+  font-size: 11.2px;
   color: var(--text-secondary);
-  line-height: 1.4;
+  line-height: 1.38;
 }
 
-/* Deep Dive Points */
 .deep-dive-points {
   list-style: none;
 }
@@ -1303,10 +1300,10 @@ address {
 .deep-dive-points li {
   position: relative;
   padding-left: 14px;
-  margin-bottom: 8px;
-  font-size: 11.8px;
+  margin-bottom: 6.5px;
+  font-size: 11.4px;
   color: var(--text-secondary);
-  line-height: 1.42;
+  line-height: 1.4;
 }
 
 .deep-dive-points li::before {
@@ -1315,7 +1312,7 @@ address {
   left: 0;
   top: 0;
   color: var(--accent);
-  font-size: 10px;
+  font-size: 9.5px;
 }
 
 .deep-dive-points strong {
@@ -1324,7 +1321,7 @@ address {
 
 .deep-dive-points code {
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 10px;
   background: var(--tag-bg);
   padding: 1px 4px;
   border-radius: 3px;
@@ -1332,13 +1329,13 @@ address {
 }
 
 .modal-footer {
-  padding: 14px 24px;
+  padding: 12px 22px;
   border-top: 1px solid var(--border-color);
   background: var(--bg-card-subtle);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
@@ -1349,11 +1346,11 @@ address {
 }
 
 .modal-pill {
-  font-size: 10.5px;
+  font-size: 10px;
   font-family: var(--font-mono);
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  padding: 2px 7px;
+  padding: 2px 6px;
   border-radius: var(--radius-sm);
   color: var(--text-secondary);
 }
@@ -1387,7 +1384,7 @@ address {
 }
 
 /* ==========================================================================
-   Compact Mode Styles
+   Compact Mode Styles (Pixel-Perfect 1-Page Fit in Browser)
    ========================================================================== */
 
 .compact-mode .resume-sheet {
@@ -1496,25 +1493,39 @@ address {
 }
 
 /* ==========================================================================
-   Print Stylesheet (@media print)
+   PRINT ENGINE (@media print) — PIXEL-PERFECT, 1-PAGE GUARANTEED
    ========================================================================== */
 
 @media print {
   @page {
     size: A4 portrait;
-    margin: 6mm 8mm 6mm 8mm;
+    margin: 8mm 10mm 8mm 10mm;
   }
 
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box !important;
+    background: transparent !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  html,
   body {
     background: #ffffff !important;
-    color: #000000 !important;
-    padding: 0 !important;
-    font-size: 9.2pt !important;
+    color: #0f172a !important;
+    font-size: 8.8pt !important;
     line-height: 1.25 !important;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, Arial, sans-serif !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
 
+  /* Hide Web-Only Elements */
   .no-print,
   .control-bar,
   .skip-link,
@@ -1527,142 +1538,336 @@ address {
     display: none !important;
   }
 
+  /* Always Display the Document Sheet */
+  .page-wrapper {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
   .resume-sheet {
     display: block !important;
     border: none !important;
     box-shadow: none !important;
     padding: 0 !important;
-    border-radius: 0 !important;
-    background: transparent !important;
-  }
-
-  .page-wrapper {
-    max-width: 100% !important;
     margin: 0 !important;
-    padding: 0 !important;
+    border-radius: 0 !important;
+    width: 100% !important;
   }
 
   .sheet-accent-bar {
     height: 3px !important;
     background: #1e3a8a !important;
+    position: relative !important;
+    margin-bottom: 6px !important;
+  }
+
+  .resume-header {
+    border-bottom: 1.2pt solid #0f172a !important;
+    padding-bottom: 4px !important;
+    margin-bottom: 5px !important;
   }
 
   .candidate-name {
-    color: #0f2b5c !important;
-    font-size: 16pt !important;
+    color: #0f172a !important;
+    font-size: 15pt !important;
+    font-weight: 800 !important;
+    line-height: 1.1 !important;
+    margin-bottom: 1px !important;
   }
 
   .candidate-title {
     color: #1e3a8a !important;
-    font-size: 9.5pt !important;
+    font-size: 9pt !important;
+    font-weight: 700 !important;
     margin-bottom: 3px !important;
   }
 
   .contact-grid {
-    font-size: 7.8pt !important;
-    gap: 3px 10px !important;
-  }
-
-  .contact-item a {
-    color: #1e293b !important;
-    text-decoration: none !important;
-  }
-
-  .metrics-strip {
-    background: #f1f5f9 !important;
-    border: 0.6pt solid #cbd5e1 !important;
-    padding: 3px 5px !important;
-    margin-bottom: 5px !important;
-  }
-
-  .metric-val {
-    font-size: 9.5pt !important;
-    color: #1d4ed8 !important;
-  }
-
-  .metric-lbl {
-    font-size: 6.8pt !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 2px 10px !important;
+    font-size: 7.5pt !important;
     color: #334155 !important;
   }
 
+  .contact-item {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 3px !important;
+  }
+
+  .contact-item svg {
+    display: none !important; /* Hide tiny SVG icons to prevent print rasterization blur */
+  }
+
+  .contact-item a {
+    color: #0f172a !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+  }
+
+  /* Metrics Strip */
+  .metrics-strip {
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 4px !important;
+    background: #f8fafc !important;
+    border: 0.5pt solid #cbd5e1 !important;
+    border-radius: 3px !important;
+    padding: 3px 4px !important;
+    margin-bottom: 5px !important;
+  }
+
+  .metric-card {
+    text-align: center !important;
+  }
+
+  .metric-val {
+    font-size: 9pt !important;
+    font-weight: 800 !important;
+    color: #1e3a8a !important;
+  }
+
+  .metric-lbl {
+    font-size: 6.5pt !important;
+    font-weight: 700 !important;
+    color: #334155 !important;
+    text-transform: uppercase !important;
+  }
+
+  /* Sections */
+  .resume-section {
+    margin-bottom: 4.5px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
   .section-title {
-    color: #0f2b5c !important;
-    font-size: 8.5pt !important;
-    border-bottom: 0.8pt solid #94a3b8 !important;
+    color: #0f172a !important;
+    font-size: 8.2pt !important;
+    font-weight: 800 !important;
+    border-bottom: 0.8pt solid #64748b !important;
     padding-bottom: 1px !important;
     margin-bottom: 2.5px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+  }
+
+  .title-icon {
+    font-size: 7.5pt !important;
   }
 
   .summary-text {
-    font-size: 8pt !important;
+    font-size: 7.8pt !important;
     line-height: 1.22 !important;
+    color: #1e293b !important;
+    text-align: justify !important;
   }
 
+  .summary-text strong {
+    color: #000000 !important;
+  }
+
+  /* Skills Grid */
   .skills-grid {
-    gap: 1.5px !important;
-    font-size: 7.8pt !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.2px !important;
+    font-size: 7.6pt !important;
+  }
+
+  .skill-category {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 2px 4px !important;
+    line-height: 1.2 !important;
   }
 
   .cat-name {
     min-width: 125px !important;
-    color: #0f172a !important;
+    font-weight: 800 !important;
+    color: #000000 !important;
   }
 
   .cat-content {
     color: #1e293b !important;
   }
 
-  .bullet-list li {
-    font-size: 7.8pt !important;
-    line-height: 1.22 !important;
+  /* Experience */
+  .experience-block {
+    margin-top: 1.5px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .exp-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: baseline !important;
     margin-bottom: 1.5px !important;
-    color: #1e293b !important;
   }
 
-  .bullet-list li::before {
-    color: #2563eb !important;
+  .role-title {
+    font-size: 8.5pt !important;
+    font-weight: 800 !important;
+    color: #000000 !important;
   }
 
-  .group-title {
+  .role-paren {
+    color: #1e3a8a !important;
+    font-weight: 700 !important;
+  }
+
+  .exp-meta {
     font-size: 7.5pt !important;
-    background: #f1f5f9 !important;
-    border: 0.5pt solid #cbd5e1 !important;
-    color: #0f2b5c !important;
-    padding: 0 3px !important;
-    margin-bottom: 1.5px !important;
-  }
-
-  .badge-solo {
-    background: #2563eb !important;
-    color: #ffffff !important;
-    font-size: 6.5pt !important;
-    padding: 0 3px !important;
-  }
-
-  .tech-stack-tag {
-    font-size: 7.2pt !important;
+    font-weight: 700 !important;
     color: #475569 !important;
   }
 
+  .project-group {
+    margin-top: 2px !important;
+    margin-bottom: 2px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .group-title {
+    font-size: 7.2pt !important;
+    font-weight: 800 !important;
+    background: #f1f5f9 !important;
+    border: 0.4pt solid #94a3b8 !important;
+    color: #0f172a !important;
+    padding: 0 3px !important;
+    margin-bottom: 1px !important;
+    border-radius: 2px !important;
+  }
+
+  .bullet-list {
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin: 0 !important;
+  }
+
+  .bullet-list li {
+    font-size: 7.6pt !important;
+    line-height: 1.2 !important;
+    margin-bottom: 1.2px !important;
+    color: #1e293b !important;
+    padding-left: 10px !important;
+    position: relative !important;
+  }
+
+  .bullet-list li::before {
+    content: "▪" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: -1px !important;
+    color: #1e3a8a !important;
+    font-size: 7pt !important;
+    font-weight: bold !important;
+  }
+
+  .bullet-list strong {
+    color: #000000 !important;
+    font-weight: 700 !important;
+  }
+
+  .bullet-list code {
+    font-size: 7pt !important;
+    font-family: var(--font-mono) !important;
+    background: #f1f5f9 !important;
+    border: 0.3pt solid #cbd5e1 !important;
+    padding: 0 2px !important;
+  }
+
+  /* Projects */
+  .personal-project-item {
+    margin-bottom: 2.5px !important;
+    padding: 0 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .project-header {
+    margin-bottom: 1px !important;
+  }
+
+  .proj-title-stack {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: baseline !important;
+    gap: 3px 6px !important;
+  }
+
+  .project-name {
+    font-size: 8.2pt !important;
+    font-weight: 800 !important;
+    color: #000000 !important;
+  }
+
+  .badge-solo {
+    background: #1e3a8a !important;
+    color: #ffffff !important;
+    font-size: 6pt !important;
+    font-weight: 800 !important;
+    padding: 0 3px !important;
+    border-radius: 2px !important;
+  }
+
+  .tech-stack-tag {
+    font-size: 6.8pt !important;
+    color: #475569 !important;
+    font-weight: 600 !important;
+  }
+
+  /* Bottom Dual Grid */
   .bottom-dual-grid {
+    display: grid !important;
+    grid-template-columns: 1.15fr 1fr !important;
     gap: 8px !important;
+    margin-top: 2px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .compact-col {
+    margin-bottom: 0 !important;
+  }
+
+  .compact-list li {
+    margin-bottom: 1px !important;
   }
 
   .edu-item {
-    font-size: 7.6pt !important;
     margin-bottom: 1.5px !important;
+    font-size: 7.5pt !important;
+  }
+
+  .edu-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: baseline !important;
+    gap: 3px !important;
+  }
+
+  .edu-degree {
+    color: #000000 !important;
+    font-weight: 700 !important;
+  }
+
+  .edu-year {
+    color: #475569 !important;
+    font-weight: 700 !important;
+    font-size: 7pt !important;
   }
 
   .edu-school {
-    font-size: 7.2pt !important;
-  }
-
-  .resume-section,
-  .experience-block,
-  .personal-project-item,
-  .bottom-dual-grid {
-    page-break-inside: avoid;
-    break-inside: avoid;
+    color: #334155 !important;
+    font-size: 7pt !important;
   }
 }
 
@@ -1700,5 +1905,9 @@ address {
 
   .node-marker {
     left: -24px;
+  }
+
+  .bottom-dual-grid {
+    grid-template-columns: 1fr;
   }
 }

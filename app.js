@@ -319,11 +319,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // 4. Toolbar Controls (Print, Themes, Density, Copy Markdown)
   // =========================================================================
 
-  // Print / Save as PDF (Forces Document View for clean print)
+  // Print / Save as PDF (Forces Document View & closes any modal for clean print)
   printBtn.addEventListener('click', () => {
+    closeProjectModal();
     setViewMode('doc');
-    announceToScreenReader('Opening system print dialog');
-    window.print();
+    body.classList.add('compact-mode');
+    densityLabel.textContent = '1-Page Fit';
+    toggleDensityBtn.setAttribute('aria-pressed', 'true');
+    announceToScreenReader('Opening system print dialog for 1-page PDF export');
+    setTimeout(() => {
+      window.print();
+    }, 60);
   });
 
   // Theme Toggle (Dark / Light)
