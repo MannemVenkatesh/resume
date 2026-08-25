@@ -37,9 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================================
   const projectsData = {
     vyapar360: {
-      badge: 'Production B2B SaaS Platform',
+      badge: 'Active Personal Project • B2B SaaS',
       title: 'Vyapar360 — Multi-Tenant B2B Inventory & Retail SaaS Platform',
-      subtitle: 'Lead Backend Architect & Solo Developer • 2023 – Present',
+      subtitle: 'Lead Backend Architect & Solo Developer • 02/2026 – Present (Active)',
       flowNodes: [
         'Tenant Request / Webhook',
         'JwtAuthFilter / TenantResolver',
@@ -62,9 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     paws: {
-      badge: 'Enterprise Platform',
+      badge: 'Recent Personal Project • Completed',
       title: 'PAWS — Projects And Workers System',
-      subtitle: 'Full-Stack Backend Architect • 2023 – Present',
+      subtitle: 'Full-Stack Backend Architect • 2026 (Completed)',
       flowNodes: [
         'React 19 SPA (Nginx Proxy)',
         'Spring Security (JWT + OTP)',
@@ -85,9 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     techmojo_fintech: {
-      badge: 'FinTech & High-Throughput Microservices',
+      badge: 'Company Phase • Completed',
       title: 'Merchant Payment Processing Gateways & Card Limit Engine',
-      subtitle: 'Senior Backend Developer • Techmojo Solutions • 11/2019 – Present',
+      subtitle: 'Senior Backend Developer • Techmojo Solutions • 11/2019 – 08/2022',
       flowNodes: [
         'Merchant Checkout API',
         'API Gateway & Rate Limiter',
@@ -110,9 +110,9 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     techmojo_gaming: {
-      badge: 'Gaming Platforms & SWAT Leadership',
+      badge: 'Current Company Role • Active',
       title: 'High-Throughput Gaming Microservices & Production SWAT Triage',
-      subtitle: 'Senior Backend Engineer & Incident Lead • Techmojo Solutions • 2021 – Present',
+      subtitle: 'Senior Backend Engineer & Incident Lead • Techmojo Solutions • 08/2022 – Present',
       flowNodes: [
         'Multi-Brand Player Traffic',
         '10+ Vendor Microservices',
@@ -404,40 +404,38 @@ Senior Backend Engineer with 6+ years of experience designing, building, and mai
 
 ---
 
-## PROFESSIONAL EXPERIENCE
+## PROFESSIONAL WORK EXPERIENCE
 
 Techmojo Solutions Pvt. Ltd. | Hyderabad, India
 Senior Backend Developer (Backend Java Engineer) | 11/2019 – Present
 
-FinTech & Payment Gateway Systems
-- Payment Gateway Integration: Built backend payment services integrating Apple Pay, direct bank connectors, and merchant aggregators, handling high-volume transaction routing and callback processing with 99.9% uptime.
-- Database & Cache Optimization: Identified SQL query bottlenecks and introduced Redis caching layers across transaction history APIs, cutting average latency by 40% under peak traffic.
-- Card Authorization & Risk Rules: Developed card limit evaluation and transaction authorization microservices to process real-time spend checks against custom cardholder limits.
-- Security & Authentication: Implemented device-binding flows, JWT-based session security, and OAuth2 authorization checks to protect payment APIs against unauthorized device switching and replay attempts.
-- Backoffice & Settlement Workflows: Developed internal backoffice APIs for operations teams to track payment lifecycles, review disputed transactions, and run reconciliation batches.
-
-High-Throughput Gaming Platforms
+High-Throughput Gaming Platforms & SWAT Leadership (08/2022 – Present)
 - Vendor Integration Services: Designed and deployed 10+ isolated microservices to onboard third-party game providers, standardizing data contracts across multi-brand gaming catalogs.
 - Player Account & VIP Sync: Built event-driven synchronization services to handle real-time player profile updates, VIP tier migrations, and seamless cross-brand account state.
 - Production SWAT & Incident Triage: Served on the primary SWAT on-call rotation for production escalations, analyzing thread/heap dumps and root causes (RCA) to resolve critical live issues with minimal downtime.
 
-Leadership & Engineering Practices
+FinTech & Payment Gateway Systems (11/2019 – 08/2022)
+- Payment Gateway Integration: Built backend payment services integrating Apple Pay, direct bank connectors, and merchant aggregators, handling high-volume transaction routing and callback processing with 99.9% uptime.
+- Database & Cache Optimization: Identified SQL query bottlenecks and introduced Redis caching layers across transaction history APIs, cutting average latency by 40% under peak traffic.
+- Card Authorization & Risk Rules: Developed card limit evaluation and transaction authorization microservices to process real-time spend checks against custom cardholder limits.
+- Security & Authentication: Implemented device-binding flows, JWT-based session security, and OAuth2 authorization checks to protect payment APIs against unauthorized device switching and replay attempts.
+
+Leadership & Engineering Practices (11/2019 – Present)
 - Pod Leadership & Mentorship: Led a team of 5 backend engineers through sprint planning, technical design reviews, code reviews, and on-time sprint deliverables.
 - System Monitoring & Reliability: Configured Prometheus metrics, Grafana dashboards, and health alerts, maintaining platform reliability above 99.9%.
 - Test Automation: Improved unit and integration testing standards using JUnit 5, Mockito, and Testcontainers, bringing test coverage to ~85% across core modules.
-- Team Productivity Tooling: Built a developer automation tool that streamlined daily status rollups and reduced standup time by 60%, winning the company's internal hackathon.
 
 ---
 
-## KEY ENGINEERING PROJECTS
+## PERSONAL & INDEPENDENT PROJECTS
 
-Vyapar360 — Multi-Tenant B2B Inventory & Retail SaaS Platform
+Vyapar360 — Multi-Tenant B2B Inventory & Retail SaaS Platform (Personal Project • 02/2026 – Present)
 Stack: Java 17/25, Spring Boot 3.2, Hibernate 6, MySQL 8, Flyway, Razorpay / Stripe, React 19, Docker
 - Row-Level Multi-Tenancy: Built tenant data isolation using Hibernate 6 @TenantId and ThreadLocal context; separated non-transactional tenant resolution from @Transactional service logic to prevent tenant ID leakage across pooled database connections.
 - Subscription Billing & Webhooks: Implemented a Ports & Adapters billing subsystem for Razorpay UPI Autopay and Stripe; built HMAC signature validation, idempotent event ingestion (UNIQUE provider event inbox), and a 6-hour watchdog service to detect subscription drift.
 - Inventory & POS Operations: Developed barcode/GS1 QR batch scanning, First-Expired-First-Out (FEFO) automated stock depletion, multi-godown Delivery Challans, and GST-compliant invoice calculation (CGST/SGST/IGST).
 
-PAWS — Projects And Workers System
+PAWS — Projects And Workers System (Personal Project • Completed 2026)
 Stack: Java 21, Spring Boot, Spring Security, JPA/Hibernate, MySQL, React 19 + Vite, Docker, Nginx
 - Workforce & Project Management: Designed full-stack platform to manage contractor profiles, skill-based worker allocation, site assignments, and real-time project expenditure tracking.
 - Attendance & Wage Payouts: Built daily Muster Roll attendance tracking, wage computation rules, and payment disbursement flows with automated entity audit logs (AuditLog) for tracking wage adjustments.
@@ -446,7 +444,7 @@ Stack: Java 21, Spring Boot, Spring Security, JPA/Hibernate, MySQL, React 19 + V
 ---
 
 ## KEY ACHIEVEMENTS & AWARDS
-- Winner, Internal Coding Competition: Built a sprint automation tool that reduced daily Scrum duration by 60%, adopted across engineering teams.
+- Winner, Internal Coding Competition (2022): Built a sprint automation tool that reduced daily Scrum duration by 60%, adopted across engineering teams.
 - SWAT MVP Recognition: Recognized for exceptional debugging and rapid triage in stabilizing payment components during peak traffic events.
 
 ---
